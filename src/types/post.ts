@@ -8,4 +8,6 @@ export interface PostState {
   posts: Post[];
   isLoading: boolean;
   error: string;
+  limit: number;
+  allFetched: boolean;
 }

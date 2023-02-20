@@ -5,7 +5,7 @@ interface NewsItemProps {
   title: string;
   body: string;
   id: number;
-  removeHandler: (id: number) => void;
+  removeHandler: () => void;
 }
 
 const NewsItem: FC<NewsItemProps> = ({
@@ -17,10 +17,11 @@ const NewsItem: FC<NewsItemProps> = ({
   return (
     <Box sx={{ minWidth: 275, pb: 2 }}>
       <Card variant='outlined' sx={{ py: 3, px: 6 }}>
+        <p>{id}</p>
         <p>{title}</p>
         <p>{body}</p>
         <Button
-          onClick={() => removeHandler(id)}
+          onClick={removeHandler}
           variant='outlined'
           size='medium'
           sx={{ mt: 1 }}

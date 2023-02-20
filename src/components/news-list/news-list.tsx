@@ -13,11 +13,11 @@ const NewsList: FC<NewsListProps> = ({ posts,removeHandler }) => {
     <ul className='wrapperList'>
       {posts.map((post) => (
         <NewsItem
-          removeHandler={removeHandler}
           key={post.id}
           id={post.id}
           title={post.title}
           body={post.body}
+          removeHandler={() => removeHandler(post.id)}
         />
       ))}
     </ul>
