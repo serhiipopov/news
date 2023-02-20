@@ -1,8 +1,8 @@
-import { FC, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { deletePostAsync, fetchPostsAsync, updateLimit} from '../../store/reducers/post/slice';
+import { deletePostAsync, fetchPostsAsync, updateLimit } from '../../store/reducers/post/slice';
 import NewsList from '../../components/news-list/news-list';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { strings } from '../../constants/strings';
 
 const News: FC = () => {
@@ -20,7 +20,7 @@ const News: FC = () => {
   }
 
   const morePostsHandler = ()  => {
-    dispatch(updateLimit(50))
+    dispatch(updateLimit(20))
   }
 
   useEffect(() => {
@@ -30,16 +30,18 @@ const News: FC = () => {
 
   return (
     <div>
-      <h1 className='titleNews'>{strings.news}</h1>
+      <Typography className='titleNews' variant='h2'>
+        {strings.news}
+      </Typography>
 
-      { isLoading && <h2>Loading...</h2> }
-      { error && <h3>{error}</h3> }
+      { isLoading && <Typography variant='h3'>Loading...</Typography> }
+      { error && <Typography variant='h3'>{error}</Typography> }
 
       <NewsList posts={posts} removeHandler={removePostHandler} />
       { !isLoading && !allFetched &&
         <Button
           variant='outlined'
-          size='medium'
+          size='large'
           sx={{ mt: 1 }}
           onClick={morePostsHandler}
         >
@@ -47,8 +49,7 @@ const News: FC = () => {
         </Button>
       }
 
-      {allFetched && <span>No mores</span> }
-
+      {allFetched && <Typography variant='h5'>{strings.noMores}</Typography> }
     </div>
 
   )

@@ -8,7 +8,7 @@ export const initialState: PostState = {
   posts: [],
   isLoading: false,
   error: '',
-  limit: 50,
+  limit: 20,
   allFetched: false,
 }
 

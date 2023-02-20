@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Box, Button, Card } from '@mui/material';
+import { Box, Button, Card, Typography } from '@mui/material';
 
 interface NewsItemProps {
   title: string;
@@ -17,13 +17,13 @@ const NewsItem: FC<NewsItemProps> = ({
   return (
     <Box sx={{ minWidth: 275, pb: 2 }}>
       <Card variant='outlined' sx={{ py: 3, px: 6 }}>
-        <p>{id}</p>
-        <p>{title}</p>
-        <p>{body}</p>
+        <Typography variant='h6'>{id}</Typography>
+        <Typography variant='h5'>{title}</Typography>
+        <Typography variant='body1'>{body}</Typography>
         <Button
           onClick={removeHandler}
           variant='outlined'
-          size='medium'
+          size='large'
           sx={{ mt: 1 }}
         >
           X
