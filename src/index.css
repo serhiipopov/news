@@ -6,7 +6,7 @@
 
 .header {
   padding: 30px;
-  background: #dcd6d1;
+  background: #cfd8dc;
 }
 
 .bodyContainer{
@@ -19,6 +19,12 @@
 
 .wrapperList {
   padding: 50px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar .link {

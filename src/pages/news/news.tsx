@@ -34,8 +34,8 @@ const News: FC = () => {
         {strings.news}
       </Typography>
 
-      { isLoading && <Typography variant='h3'>Loading...</Typography> }
-      { error && <Typography variant='h3'>{error}</Typography> }
+      { isLoading && <Typography variant='h5'>{strings.loading}</Typography> }
+      { error && <Typography variant='h5'>{error}</Typography> }
 
       <NewsList posts={posts} removeHandler={removePostHandler} />
       { !isLoading && !allFetched &&

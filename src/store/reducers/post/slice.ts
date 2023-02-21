@@ -87,6 +87,6 @@ export const postSlice = createSlice({
 export const {
   removePost,
   updateLimit,
-} = postSlice.actions
+} = postSlice.actions;
 
 export default postSlice.reducer;

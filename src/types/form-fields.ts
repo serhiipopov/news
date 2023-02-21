@@ -1,4 +1,4 @@
 export interface FormFields {
-  userName: string;
+  name: string;
   password: string;
 }
