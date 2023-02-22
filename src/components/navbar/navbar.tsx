@@ -1,42 +1,43 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, Stack } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../hooks/redux';
 import { updateAuth } from '../../store/reducers/auth/slice';
 import ModalCustom from '../modal/modal';
+import LanguagesToggle from '../languages-toggle/languages-toggle';
 import Login from '../login/login';
-import { strings } from '../../constants/strings';
-import { Routes } from '../../constants/routes'
+import { Routes } from '../../constants/routes';
 import '../../index.css';
 
 const Navbar: FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const toggle = () => setOpenModal(!openModal);
   const logout = () => {
-    localStorage.removeItem('name');
-    localStorage.removeItem('password');
+    localStorage.removeItem('auth');
     dispatch(updateAuth(false));
   }
 
   return (
     <nav className='navbar'>
       <div>
-        <Link className='link' to={Routes.main}>{strings.main}</Link>
-        <Link className='link' to={Routes.news}>{strings.news}</Link>
-        <Link className='link' to={Routes.profile}>{strings.profile}</Link>
+        <Link className='link' to={Routes.main}>{t('headers.main')}</Link>
+        <Link className='link' to={Routes.news}>{t('headers.news')}</Link>
+        <Link className='link' to={Routes.profile}>{t('headers.profile')}</Link>
       </div>
 
-      <div>
-          <Button variant='outlined' onClick={toggle}>
-            {strings.logIn}
-          </Button>
-          <Button variant='outlined' onClick={logout}>
-             {strings.logout}
-          </Button>
-      </div>
-
+      <Stack direction='row' spacing={2}>
+        <LanguagesToggle/>
+        <Button variant='outlined' onClick={toggle}>
+          {t('headers.login')}
+        </Button>
+        <Button variant='outlined' onClick={logout}>
+          {t('headers.logout')}
+        </Button>
+      </Stack>
 
       <ModalCustom openModal={openModal} handleClose={toggle}>
         <Login setOpenModal={setOpenModal} />

@@ -6,6 +6,7 @@ import App from './App';
 import BaseLayout from './components/base-layout/base-layout';
 
 import './index.css';
+import './i18n';
 
 const store = setupStore();
 

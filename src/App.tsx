@@ -1,15 +1,18 @@
 import React, { FC, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { useAppSelector } from './hooks/redux';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { updateAuth } from './store/reducers/auth/slice';
 import { Main, Profile, News } from './pages';
 import { Routes as EnumRoutes } from './constants/routes';
 
 const App: FC = () => {
+  const dispatch = useAppDispatch();
   const isAuth = useAppSelector(state => state.authReducer.isAuth);
 
   useEffect(() => {
-    localStorage.getItem('name');
-    localStorage.getItem('password');
+    if (localStorage.getItem('auth')) {
+      dispatch(updateAuth(true))
+    }
   }, []);
 
   return (

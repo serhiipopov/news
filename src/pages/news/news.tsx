@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { deletePostAsync, fetchPostsAsync, updateLimit } from '../../store/reducers/post/slice';
-import NewsList from '../../components/news-list/news-list';
+import { useTranslation } from 'react-i18next';
 import { Button, Typography } from '@mui/material';
-import { strings } from '../../constants/strings';
+import NewsList from '../../components/news-list/news-list';
 
 const News: FC = () => {
   const dispatch = useAppDispatch();
@@ -14,6 +14,7 @@ const News: FC = () => {
     limit,
     allFetched
   } = useAppSelector(state => state.postReducer);
+  const { t } = useTranslation();
 
   const removePostHandler = (id: number) => {
     dispatch(deletePostAsync(id))
@@ -27,14 +28,13 @@ const News: FC = () => {
     dispatch(fetchPostsAsync(limit))
   },[dispatch, limit])
 
-
   return (
     <div>
       <Typography className='titleNews' variant='h2'>
-        {strings.news}
+        {t('headers.news')}
       </Typography>
 
-      { isLoading && <Typography variant='h5'>{strings.loading}</Typography> }
+      { isLoading && <Typography variant='h5'> {t('body.loading')}</Typography> }
       { error && <Typography variant='h5'>{error}</Typography> }
 
       <NewsList posts={posts} removeHandler={removePostHandler} />
@@ -45,11 +45,11 @@ const News: FC = () => {
           sx={{ mt: 1 }}
           onClick={morePostsHandler}
         >
-          {strings.more}
+          {t('body.more')}
         </Button>
       }
 
-      {allFetched && <Typography variant='h5'>{strings.noMores}</Typography> }
+      { allFetched && <Typography variant='h5'>{t('body.noMores')}</Typography> }
     </div>
 
   )

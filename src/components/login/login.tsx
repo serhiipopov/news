@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/redux';
 import { updateAuth } from '../../store/reducers/auth/slice';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -11,13 +12,8 @@ import {
   TextField,
 } from '@mui/material';
 import { FormFields } from '../../types/form-fields';
+import { USER } from '../../__mocks__';
 import { Routes } from '../../constants/routes';
-import { strings } from '../../constants/strings';
-
-const USER = {
-  name: 'admin',
-  password: '12345'
-}
 
 interface LoginProps {
   setOpenModal: (state: boolean) => void;
@@ -31,6 +27,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const formHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -42,8 +39,6 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
 
     if (formFields.name === USER.name && formFields.password === USER.password) {
       dispatch(updateAuth(true));
-      localStorage.setItem('user', formFields.name);
-      localStorage.setItem('password', formFields.password);
       setOpenModal(false);
       navigate(Routes.profile);
       setErrorMessage('');
@@ -88,7 +83,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
               size='large'
               sx={{ maxWidth: 150 }}
             >
-              {strings.signIn}
+              {t('body.signIn')}
             </Button>
           </Stack>
         </form>
