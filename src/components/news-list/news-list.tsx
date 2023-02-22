@@ -11,19 +11,17 @@ interface NewsListProps {
 
 const NewsList: FC<NewsListProps> = ({ posts,removeHandler }) => {
   return (
-    <ul>
-      <Stack spacing={2}>
-        {posts.map((post) => (
-          <NewsItem
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            body={post.body}
-            removeHandler={() => removeHandler(post.id)}
-          />
-        ))}
-      </Stack>
-    </ul>
+    <Stack spacing={2}>
+      {posts.map((post) => (
+        <NewsItem
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          body={post.body}
+          removeHandler={() => removeHandler(post.id)}
+        />
+      ))}
+    </Stack>
   );
 };
 

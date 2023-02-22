@@ -12,7 +12,7 @@ import {
   TextField,
 } from '@mui/material';
 import { FormFields } from '../../types/form-fields';
-import { USER } from '../../__mocks__';
+import { LOGIN } from '../../__mocks__';
 import { Routes } from '../../constants/routes';
 
 interface LoginProps {
@@ -37,7 +37,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (formFields.name === USER.name && formFields.password === USER.password) {
+    if (formFields.name === LOGIN.name && formFields.password === LOGIN.password) {
       dispatch(updateAuth(true));
       setOpenModal(false);
       navigate(Routes.profile);

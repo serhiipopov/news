@@ -9,7 +9,7 @@ export const languages = [
   }
 ]
 
-export const USER = {
+export const LOGIN = {
   name: 'admin',
   password: '12345'
 }

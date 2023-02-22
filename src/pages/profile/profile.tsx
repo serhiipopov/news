@@ -1,13 +1,15 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { PROFILE } from '../../__mocks__';
+import Title from '../../components/title/title';
 
 const Profile: FC = () => {
   const { t } = useTranslation();
 
   return (
     <Box sx={{ p: 5 }}>
+      <Title title={t('headers.profile')} />
       <Grid container spacing={6} columns={2}>
         <Grid item md={1}>
           <img

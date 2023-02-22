@@ -4,6 +4,9 @@ import { deletePostAsync, fetchPostsAsync, updateLimit } from '../../store/reduc
 import { useTranslation } from 'react-i18next';
 import { Button, Typography } from '@mui/material';
 import NewsList from '../../components/news-list/news-list';
+import Error from '../../components/error/error';
+import Title from '../../components/title/title';
+import Spinner from '../../components/spinner/spinner';
 
 const News: FC = () => {
   const dispatch = useAppDispatch();
@@ -30,12 +33,10 @@ const News: FC = () => {
 
   return (
     <div>
-      <Typography className='titleNews' variant='h2'>
-        {t('headers.news')}
-      </Typography>
+      <Title title= {t('headers.news')} />
 
-      { isLoading && <Typography variant='h5'> {t('body.loading')}</Typography> }
-      { error && <Typography variant='h5'>{error}</Typography> }
+      { isLoading && <Spinner /> }
+      { error && <Error error={error} /> }
 
       <NewsList posts={posts} removeHandler={removePostHandler} />
       { !isLoading && !allFetched &&

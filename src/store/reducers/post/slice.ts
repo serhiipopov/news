@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Post, PostState } from '../../../types/post';
-
-const URL = 'https://jsonplaceholder.typicode.com/posts';
+import { API_URL } from '../../../constants/api';
 
 export const initialState: PostState = {
   posts: [],
@@ -16,7 +15,7 @@ export const fetchPostsAsync = createAsyncThunk(
   'postsServices/fetchPostsAsync',
   async (limit: number, { rejectWithValue }) => {
     try {
-      const response = await axios.get<Post[]>(`${URL}`, {
+      const response = await axios.get<Post[]>(`${API_URL}/posts`, {
         params: {
           _limit: limit
         }
