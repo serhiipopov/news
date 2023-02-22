@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { PROFILE } from '../../__mocks__';
+import { PROFILE } from '../../mock';
 import Title from '../../components/title/title';
 
 const Profile: FC = () => {

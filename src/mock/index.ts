@@ -1,14 +1,3 @@
-export const languages = [
-  {
-    value: 'en',
-    label: 'English'
-  },
-  {
-    value: 'ua',
-    label: 'Українська'
-  }
-]
-
 export const LOGIN = {
   name: 'admin',
   password: '12345'

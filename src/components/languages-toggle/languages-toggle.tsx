@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { languages } from '../../__mocks__';
+import { languages } from '../../constants/languages';
 
 const LanguagesToggle: FC = () => {
   const { i18n } = useTranslation();

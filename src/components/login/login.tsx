@@ -12,7 +12,7 @@ import {
   TextField,
 } from '@mui/material';
 import { FormFields } from '../../types/form-fields';
-import { LOGIN } from '../../__mocks__';
+import { LOGIN } from '../../mock';
 import { Routes } from '../../constants/routes';
 
 interface LoginProps {
