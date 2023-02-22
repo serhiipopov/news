@@ -11,7 +11,7 @@ const User: FC<UserProps> = ({ user }) => {
   const { city, suite, street } = address;
 
   return (
-    <Grid item md={2}>
+    <Grid item md={4}>
       <Card variant='elevation' elevation={8} sx={{ p: 5 }}>
         <Typography variant='h6' component='h6' color='blue'>{name}</Typography>
         <Typography variant='overline' component='div' color='indigo'>{city}</Typography>

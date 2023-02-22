@@ -9,7 +9,7 @@ interface UsersListProps {
 
 const UsersList: FC<UsersListProps> = ({ users }) => {
   return (
-    <Grid container spacing={5} columns={4}>
+    <Grid container spacing={4} columns={12}>
       {users.map((user) => (
         <User key={user.id} user={user} />
       ))}

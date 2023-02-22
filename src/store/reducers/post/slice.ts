@@ -33,7 +33,7 @@ export const deletePostAsync = createAsyncThunk(
   'postsServices/deletePostAsync',
   async (postId: number, { dispatch, rejectWithValue }) => {
     try {
-      const { data, status } = await axios.delete(`${URL}/${postId}`)
+      const { data, status } = await axios.delete(`${API_URL}/posts/${postId}`)
 
       if (status === 200) {
         dispatch(removePost({ postId }));
