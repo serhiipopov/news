@@ -9,14 +9,6 @@
   background: #e3f2fd;
 }
 
-.bodyContainer{
-  padding: 40px 80px;
-}
-
-.wrapperList {
-  padding: 50px 20px;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Box } from '@mui/material';
 import Header from '../header/header';
 
 interface BaseLayoutProps {
@@ -9,9 +10,9 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <div className='bodyContainer'>
+      <Box py={8} px={20}>
         {children}
-      </div>
+      </Box>
     </>
   );
 };
