@@ -2,10 +2,10 @@ import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchUserAsync } from '../../store/reducers/users/slice';
-import Title from '../../components/title/title';
-import Error from '../../components/error/error';
+import Title from '../../components/ui/title/title';
+import Error from '../../components/ui/error/error';
 import UsersList from '../../components/users-list/users-list';
-import Spinner from '../../components/spinner/spinner';
+import Spinner from '../../components/ui/spinner/spinner';
 
 const Main: FC = () => {
   const { users, isLoading, error } = useAppSelector(state => state.userReducer);
@@ -18,7 +18,7 @@ const Main: FC = () => {
 
   return (
     <>
-      <Title title={t('body.users')} />
+      <Title title={t('body.users')} color='grey' />
 
       { isLoading && <Spinner /> }
       { error && <Error error={error} /> }

@@ -16,7 +16,7 @@ import { LOGIN } from '../../mock';
 import { Routes } from '../../constants/routes';
 
 interface LoginProps {
-  setOpenModal: (state: boolean) => void;
+  setOpenModal: (value: boolean) => void;
 }
 
 const Login: FC<LoginProps> = ({ setOpenModal }) => {
@@ -31,7 +31,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
 
   const formHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
-    setFormFields({...formFields, [id]: value});
+    setFormFields({ ...formFields, [id]: value });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -39,6 +39,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
 
     if (formFields.name === LOGIN.name && formFields.password === LOGIN.password) {
       dispatch(updateAuth(true));
+      localStorage.setItem('auth', 'true');
       setOpenModal(false);
       navigate(Routes.profile);
       setErrorMessage('');

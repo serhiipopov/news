@@ -12,6 +12,7 @@
     "signIn": "Sign in",
     "fullName": "Full name",
     "generalInformation": "General information",
-    "users": "Users"
+    "users": "Users",
+    "error": "The page does not exist"
   }
 }

@@ -4,9 +4,9 @@ import { deletePostAsync, fetchPostsAsync, updateLimit } from '../../store/reduc
 import { useTranslation } from 'react-i18next';
 import { Button, Typography } from '@mui/material';
 import NewsList from '../../components/news-list/news-list';
-import Error from '../../components/error/error';
-import Title from '../../components/title/title';
-import Spinner from '../../components/spinner/spinner';
+import Error from '../../components/ui/error/error';
+import Title from '../../components/ui/title/title';
+import Spinner from '../../components/ui/spinner/spinner';
 
 const News: FC = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +33,7 @@ const News: FC = () => {
 
   return (
     <div>
-      <Title title= {t('headers.news')} />
+      <Title title= {t('headers.news')} color='grey' />
 
       { isLoading && <Spinner /> }
       { error && <Error error={error} /> }

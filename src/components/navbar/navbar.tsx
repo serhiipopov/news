@@ -2,10 +2,10 @@ import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { updateAuth } from '../../store/reducers/auth/slice';
-import ModalCustom from '../modal/modal';
-import LanguagesToggle from '../languages-toggle/languages-toggle';
+import ModalCustom from '../ui/modal/modal';
+import LanguagesToggle from '../ui/languages-toggle/languages-toggle';
 import Login from '../login/login';
 import { Routes } from '../../constants/routes';
 import '../../index.css';
@@ -14,6 +14,7 @@ const Navbar: FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
+  const isAuth = useAppSelector(state => state.authReducer.isAuth);
 
   const toggle = () => setOpenModal(!openModal);
   const logout = () => {
@@ -30,13 +31,16 @@ const Navbar: FC = () => {
       </div>
 
       <Stack direction='row' spacing={2}>
-        <LanguagesToggle/>
-        <Button variant='outlined' onClick={toggle}>
-          {t('headers.login')}
-        </Button>
-        <Button variant='outlined' onClick={logout}>
-          {t('headers.logout')}
-        </Button>
+        <LanguagesToggle />
+        {!isAuth ?
+          <Button variant='outlined' onClick={toggle}>
+            {t('headers.login')}
+          </Button>
+          :
+          <Button variant='outlined' onClick={logout}>
+            {t('headers.logout')}
+          </Button>
+        }
       </Stack>
 
       <ModalCustom openModal={openModal} handleClose={toggle}>

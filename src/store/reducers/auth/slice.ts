@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState } from '../../../types/auth';
 
 const initialState: AuthState = {
-  isAuth: false
+  isAuth: false,
+  isLoading: true
 }
 
 export const authSlice = createSlice({
@@ -12,10 +13,13 @@ export const authSlice = createSlice({
     updateAuth(state, action: PayloadAction<boolean>) {
       state.isAuth = action.payload
     },
+    updateLoading(state) {
+      state.isLoading = false
+    },
   }
 })
 
-export const { updateAuth } = authSlice.actions;
+export const { updateAuth, updateLoading } = authSlice.actions;
 
 export default authSlice.reducer;
 
