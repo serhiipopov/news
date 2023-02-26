@@ -4,11 +4,11 @@ export interface IUser {
   email: string;
   address: Address;
   phone: string;
-  company: Company
+  company: Company;
 }
 
 interface Company {
-  name: string
+  name: string;
 }
 
 interface Address {

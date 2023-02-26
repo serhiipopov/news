@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 
 interface TitleProps {
   title: string;
-  color: string;
+  color?: string;
 }
 
 const Title: FC<TitleProps> = ({ title, color }) => (
@@ -11,7 +11,7 @@ const Title: FC<TitleProps> = ({ title, color }) => (
     variant='h1'
     component='h1'
     fontSize={42}
-    color={color}
+    color={color ? color : 'black'}
     sx={{ textAlign: 'center', mb: 4 }}
   >
     {title}

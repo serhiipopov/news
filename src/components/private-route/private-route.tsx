@@ -9,7 +9,6 @@ interface PrivateRouteProps {
 
 const PrivateRoute: FC<PrivateRouteProps> = ({ children, isAuth }) => {
   return <> { isAuth ? children : <Navigate to={Routes.main} /> } </>
-}
-
+};
 
 export default PrivateRoute;

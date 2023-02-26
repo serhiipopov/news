@@ -12,6 +12,8 @@ const Main: FC = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
+  const countUsers = users.length;
+
   useEffect(() => {
     dispatch(fetchUserAsync())
   }, [])
@@ -22,6 +24,7 @@ const Main: FC = () => {
 
       { isLoading && <Spinner /> }
       { error && <Error error={error} /> }
+      { !error && !countUsers && !isLoading && <Title title={t('body.noUsers')} /> }
 
       <UsersList users={users} />
     </>

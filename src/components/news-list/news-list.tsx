@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import NewsItem from '../news-item/news-item';
 import { Stack } from '@mui/material';
+import NewsItem from '../news-item/news-item';
 import { Post } from '../../types/post';
-import '../../index.css'
 
 interface NewsListProps {
   posts: Post[];

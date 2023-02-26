@@ -19,12 +19,14 @@ const News: FC = () => {
   } = useAppSelector(state => state.postReducer);
   const { t } = useTranslation();
 
+  const countNews = posts.length;
+
   const removePostHandler = (id: number) => {
     dispatch(deletePostAsync(id))
   }
 
   const morePostsHandler = ()  => {
-    dispatch(updateLimit(20))
+    dispatch(updateLimit(30))
   }
 
   useEffect(() => {
@@ -37,6 +39,7 @@ const News: FC = () => {
 
       { isLoading && <Spinner /> }
       { error && <Error error={error} /> }
+      { !error && !countNews && !isLoading && <Title title={t('body.noNews')} /> }
 
       <NewsList posts={posts} removeHandler={removePostHandler} />
       { !isLoading && !allFetched &&
@@ -52,8 +55,7 @@ const News: FC = () => {
 
       { allFetched && <Typography variant='h5'>{t('body.noMores')}</Typography> }
     </div>
-
-  )
+  );
 };
 
 export default News;

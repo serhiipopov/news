@@ -32,7 +32,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
   const formHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     setFormFields({ ...formFields, [id]: value });
-  };
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,7 +46,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
     } else {
       setErrorMessage('Invalid username or password');
     }
-  };
+  }
 
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -90,7 +90,7 @@ const Login: FC<LoginProps> = ({ setOpenModal }) => {
         </form>
       </Paper>
     </Box>
-  )
-}
+  );
+};
 
 export default Login;

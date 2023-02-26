@@ -7,4 +7,4 @@ export const languages = [
     value: 'ua',
     label: 'Українська'
   }
-]
+];

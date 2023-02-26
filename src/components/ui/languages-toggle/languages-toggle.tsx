@@ -8,15 +8,15 @@ const LanguagesToggle: FC = () => {
   const [selectedLng, setSelectedLng] = useState<string>(languages[0].value);
 
   useEffect(() => {
-    const storedSelectedLanguage = sessionStorage.getItem('selectedLng') || 'en'
-    setSelectedLng(storedSelectedLanguage)
+    const storedSelectedLanguage = sessionStorage.getItem('selectedLng') || 'en';
+    setSelectedLng(storedSelectedLanguage);
   }, [])
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
     const lng = event.target.value;
     i18n.changeLanguage(lng);
     setSelectedLng(lng);
-    sessionStorage.setItem('selectedLng', lng)
+    sessionStorage.setItem('selectedLng', lng);
   }
 
   return (
@@ -34,6 +34,6 @@ const LanguagesToggle: FC = () => {
         ))}
       </Select>
   );
-}
+};
 
 export default LanguagesToggle;

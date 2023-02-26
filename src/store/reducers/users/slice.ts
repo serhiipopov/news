@@ -11,7 +11,7 @@ const initialState: UsersState = {
 
 export const fetchUserAsync = createAsyncThunk(
   'usersServices/fetchUserAsync',
-  async (_, {rejectWithValue}) => {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get<IUser[]>(`${API_URL}/users`)
 
